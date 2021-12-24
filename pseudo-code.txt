@@ -1,0 +1,23 @@
+// app.com/index.php?url=posts call index method
+// app.com/index.php?url=posts/add call add method
+// app.com/index.php?url=posts/edit/1 call edit method and take one param
+
+// pseudo code
+class Posts{
+    public function __construct(){
+        $this->postModel = $this->model('post');
+    }
+    public function index(){}
+
+    public function add(){}
+
+    public function edit($id){
+        $post = $this->postModel-fetchPost($id);
+
+        $this->view('edit', ['post' => $post]);
+    }
+}
+
+// view
+
+<h1><?php echo $data['title']; ?></h1>
